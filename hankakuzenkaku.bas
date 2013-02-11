@@ -1,25 +1,25 @@
 Attribute VB_Name = "Module1"
-Sub ï¿½Sï¿½pï¿½ï¿½()
+Sub ‘SŠp‰»()
     Dim c As Range
     
-    For Each c In ActiveSheet.UsedRange  'ï¿½Vï¿½[ï¿½gï¿½Ågï¿½pï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½×‚Ä‚ï¿½ï¿½ÎÛ‚ï¿½
-        If c.Value <> "" Then c.Value = ï¿½ï¿½ï¿½pï¿½Jï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Sï¿½pï¿½ï¿½ï¿½È‚É•ÏŠï¿½(c.Value)
+    For Each c In ActiveSheet.UsedRange  'ƒV[ƒg‚Åg—p‚³‚ê‚Ä‚¢‚éƒZƒ‹‚·‚×‚Ä‚ğ‘ÎÛ‚É
+        If c.Value <> "" Then c.Value = ”¼ŠpƒJƒi‚¾‚¯‘SŠp‚©‚È‚É•ÏŠ·(c.Value)
     Next
 End Sub
 
-Function ï¿½ï¿½ï¿½pï¿½Jï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Sï¿½pï¿½ï¿½ï¿½È‚É•ÏŠï¿½(str As String)
+Function ”¼ŠpƒJƒi‚¾‚¯‘SŠp‚©‚È‚É•ÏŠ·(str As String)
     Dim buf As String
     Dim re As RegExp
     Dim m As Match
     
     Set re = New RegExp
-    re.pattern = "[ï¿½-ï¿½]+" 'ï¿½ï¿½ï¿½pï¿½Jï¿½iï¿½Ìƒpï¿½^ï¿½[ï¿½ï¿½0xA1-0xDF(Wikipedia:ï¿½ï¿½ï¿½pï¿½Jï¿½iï¿½ï¿½ï¿½Qï¿½ï¿½)
+    re.pattern = "[¡-ß]+" '”¼ŠpƒJƒi‚Ìƒpƒ^[ƒ“0xA1-0xDF(Wikipedia:”¼ŠpƒJƒi‚ğQÆ)
     re.global = true
 
-'    buf = StrConv(str, vbNarrow) 'ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½ï¿½
+'    buf = StrConv(str, vbNarrow) '‰p”‚à”¼Šp‚É‚µ‚½‚¢ê‡‚É
     buf = str
     For Each m In re.Execute(buf)
         buf = Replace(buf, m, StrConv(m, vbWide))
     Next
-    ï¿½ï¿½ï¿½pï¿½Jï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Sï¿½pï¿½ï¿½ï¿½È‚É•ÏŠï¿½ = buf
+    ”¼ŠpƒJƒi‚¾‚¯‘SŠp‚©‚È‚É•ÏŠ· = buf
 End Function
